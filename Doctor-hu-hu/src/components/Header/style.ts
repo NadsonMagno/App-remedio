@@ -1,37 +1,40 @@
-import { colors } from "@/styles/colors";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: {
-        backgroundColor: colors.gray[700],
-        width: '100%',
-        flexDirection: 'row',
-        gap: 10,
-        alignItems: 'center',
-        padding: 20,
-        borderBottomWidth: 0.5,
-        borderBottomColor: colors.gray[400],
-    },
-    image:{
-        width:  42,
-        height: 42,
-      
-    },
+  container: {
+    width: '100%',
+    height: 178,
+    backgroundColor: '#1967FB',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: 24
+  },
+  button: {
+    height: 56,
+    width: 56,
+    borderRadius: 4,
+    borderColor: '#E3E3E3',
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  user: {
+    flex: 1,
+    marginLeft: 12
+  },
+  title: {
+    color: '#FFF',
+    fontSize: 20
+  },
+  subtitle: {
+    color: '#FFF',
+    fontSize: 13
+  },
+  avatar: {
+    width: 56,
+    height: 56,
+    borderRadius: 5,
+  }
 
-    user:{
-        flex:1,
-
-    },
-
-    name:{
-        color: colors.gray[100],
-        fontWeight: "500",
-        fontSize: 16,
-
-    },
-
-    email:{
-        color: colors.gray[300],
-        fontSize: 14,
-    }
 });

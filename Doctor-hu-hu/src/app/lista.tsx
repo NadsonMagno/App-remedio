@@ -1,1 +1,1 @@
-export { default } from '@/components/screens/Lista/Lista'
+export { default } from '@/components/screens/Adicionar/Adicionar'

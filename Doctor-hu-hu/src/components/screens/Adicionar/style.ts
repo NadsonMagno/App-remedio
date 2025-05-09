@@ -7,8 +7,6 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.gray[700],
         flex: 1, 
        
-
-
     },
 
   
