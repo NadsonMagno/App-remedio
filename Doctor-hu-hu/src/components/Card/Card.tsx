@@ -7,6 +7,8 @@ import { styles } from './style';
 export type CardProps = {
   id: string;
   name: string;
+  description: string;
+  password: string;
   
 }
 type Props = {

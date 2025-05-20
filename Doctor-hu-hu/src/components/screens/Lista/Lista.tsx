@@ -2,21 +2,42 @@ import { useCallback, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 
 import { Card, CardProps } from '@/components/Card/Card';
-import { Header } from '@/components/Header/Header';
+import  Header  from '@/components/Header/Header';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { styles } from './style';
 import { Button } from '@/components/Button/Button';
-export function Home() {
+import { useAsyncStorage } from '@react-native-async-storage/async-storage';
+export  default function Lista() {
   const [data, setData] = useState<CardProps[]>([]);
 
+  const { getItem, setItem } = useAsyncStorage("@doctorhoho:medicines");
+
+  async function handleFetchData() {
+    const response = await getItem();
+    const data = response ? JSON.parse(response) : [];
+    setData(data);
+  }
+
+  async function handleRemove(id: string) {
+    const response = await getItem();
+    const previousData = response ? JSON.parse(response) : [];
+
+    const data = previousData.filter((item: CardProps) => item.id !== id);
+    setItem(JSON.stringify(data));
+    setData(data);
+  }
+
+  useFocusEffect(useCallback(() => {
+    handleFetchData();
+  }, []));
   return (
     <View style={styles.container}>
       <Header />
 
       <View style={styles.listHeader}>
         <Text style={styles.title}>
-          Suas senhas
+          Suas Medicações
         </Text>
 
         <Text style={styles.listCount}>
@@ -31,9 +52,8 @@ export function Home() {
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) =>
           <Card
-                data={item} onPress={function (): void {
-                    throw new Error('Function not implemented.');
-                } }           /* onPress={() => handleRemove(item.id)} */
+            data={item}
+            onPress={() => handleRemove(item.id)}
           />
         }
       />

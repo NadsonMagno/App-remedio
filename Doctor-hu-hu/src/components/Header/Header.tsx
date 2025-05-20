@@ -5,26 +5,26 @@ import { router, Router } from 'expo-router';
 
 import { styles } from './style';
 
-export   function Header() {
+export   default function Header() {
   const navigation = useNavigation();
 
   function handleAdd() {
-    router.navigate('/');
+    router.replace('/adicionar');
   }
 
   return (
     <View style={styles.container}>
       <Image
-        source={{ uri: 'https://github.com/rodrigorgtic.png' }}
+        source={{ uri: "https://github.com/NadsonMagno.png"}}
         style={styles.avatar}
       />
 
       <View style={styles.user}>
         <Text style={styles.title}>
-          Olá, Rodrigo
+          Olá, Nadson
         </Text>
         <Text style={styles.subtitle}>
-          Sinta-se seguro aqui.
+          Mantenha suas medicações em dia.
         </Text>
       </View>
 
