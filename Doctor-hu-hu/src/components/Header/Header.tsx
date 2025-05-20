@@ -9,7 +9,7 @@ export   default function Header() {
   const navigation = useNavigation();
 
   function handleAdd() {
-    router.replace('/adicionar');
+    router.push('/adicionar');
   }
 
   return (

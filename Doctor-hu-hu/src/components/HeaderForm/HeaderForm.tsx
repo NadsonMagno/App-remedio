@@ -1,17 +1,18 @@
 import React from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { useRouter } from 'expo-router';
 import { TouchableOpacity, View, Text } from 'react-native';
 
 import { styles } from './style';
 
 export function HeaderForm() {
-  const navigation = useNavigation();
+  const router = useRouter();
 
   return (
     <View style={styles.header}>
       <TouchableOpacity
-        onPress={() => navigation.goBack()}
+        onPress={() => router.back()}
         style={styles.button}
       >
         <MaterialIcons

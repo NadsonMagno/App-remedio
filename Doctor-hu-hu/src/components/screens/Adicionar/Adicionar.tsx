@@ -4,7 +4,8 @@ import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { styles } from './style';
 import Toast from 'react-native-toast-message';
 import { v4 as uuidv4 } from 'uuid';
-import AsyncStorage, { useAsyncStorage } from '@react-native-async-storage/async-storage';
+import { useAsyncStorage } from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 import { Input } from '@/components/Input/Input';
 import  { Button}  from '@/components/Button/Button';
 import { HeaderForm } from '@/components/HeaderForm/HeaderForm';
@@ -14,8 +15,8 @@ export default function Adicionar() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [password, setPassword] = useState('');
-
-  const { getItem, setItem } = useAsyncStorage("@savepass:passwords");
+ 
+  const { getItem, setItem } = useAsyncStorage("@doctorhoho:medicines");
   
   async function handleNew(){
 
@@ -31,7 +32,7 @@ export default function Adicionar() {
     const previousData = response ? JSON.parse(response) : [];
 
     const data = [...previousData, newData];
-
+    
     await setItem(JSON.stringify(data));
     Toast.show({
       type: "success",
